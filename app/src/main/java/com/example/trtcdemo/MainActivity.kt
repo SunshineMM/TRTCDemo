@@ -13,13 +13,25 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        checkPermission()
+        
+
+    }
+
+
+
+
+    /**
+     * 检查权限 含android 6.0及以上设备需授权
+     */
+    private fun checkPermission(){
         PermissionX.init(this)
             .permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO, Manifest.permission.READ_EXTERNAL_STORAGE)
-            .request { allGranted, grantedList, deniedList ->
+            .request { allGranted, _, deniedList ->
                 if (allGranted) {
-                    Toast.makeText(this, "授予所有权限", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "权限已通过", Toast.LENGTH_LONG).show()
                 } else {
-                    Toast.makeText(this, "这些权限被拒绝: $deniedList", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "以下必要权限被拒绝: $deniedList", Toast.LENGTH_LONG).show()
                 }
             }
     }
