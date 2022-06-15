@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         //点击选择主播
         btn_anchor.setSingleClick {
             /**
-             * 主播进入房间 如果不需要展示视频 第四个参数（mTXCloudVideoView）不传即可
+             * 主播进入房间 如果不需要展示视频 第四个参数（mTXCloudVideoView）不传或者传null即可
              */
             TRTCManager.enterRoom(TRTCManager.USER_ANCHOR, anchorUserId, mRoomId, video_view)
         }
