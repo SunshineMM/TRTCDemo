@@ -1,4 +1,4 @@
-package com.example.trtcdemo;
+package com.example.trtcdemo.trtc;
 
 
 import android.util.Base64;
