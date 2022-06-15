@@ -14,7 +14,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         checkPermission()
-        
 
     }
 
@@ -22,15 +21,13 @@ class MainActivity : AppCompatActivity() {
 
 
     /**
-     * 检查权限 含android 6.0及以上设备需授权
+     * 检查权限 含android 6.0及以上设备需授权：相机，录音
      */
     private fun checkPermission(){
         PermissionX.init(this)
-            .permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO, Manifest.permission.READ_EXTERNAL_STORAGE)
+            .permissions(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO)
             .request { allGranted, _, deniedList ->
-                if (allGranted) {
-                    Toast.makeText(this, "权限已通过", Toast.LENGTH_LONG).show()
-                } else {
+                if (!allGranted) {
                     Toast.makeText(this, "以下必要权限被拒绝: $deniedList", Toast.LENGTH_LONG).show()
                 }
             }
