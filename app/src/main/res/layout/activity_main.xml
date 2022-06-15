@@ -6,14 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.tencent.rtmp.ui.TXCloudVideoView
+        android:id="@+id/video_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+
+    <Button
+        android:id="@+id/btn_anchor"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:text="选择主播"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_audience"
+        android:layout_marginStart="15dp"
+        />
+
+    <Button
+        android:id="@+id/btn_audience"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:text="选择观众"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_anchor"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        />
+
     <TextView
-        android:id="@+id/tv_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_anchor"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:text="备注："/>
 
+    <com.tencent.rtmp.ui.TXCloudVideoView
+        android:id="@+id/live_cloud_view_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
