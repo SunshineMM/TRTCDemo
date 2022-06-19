@@ -18,9 +18,11 @@ class MainActivity : AppCompatActivity() {
      *
      * 注意：TRTC 不支持同一个 userId 在两台不同的设备上同时进入房间，否则会相互干扰。
      *
+     * roomId 房间号 数字类型的房间号。注意如果您想使用字符串类型的房间号，请使用 strRoomId 字段，而不要使用 roomId 字段，因为 strRoomId 和 roomId 不可以混用
+     *
      */
-    val mRoomId = 10241024 // 房间号
-    val anchorUserId = "LiuJian0715" // 主播（场地终端）
+    val mRoomId = 10241024 // 房间号 可自定义 当前用的 roomId Int 类型的房间号
+    val anchorUserId = "LiuJian0715" // 主播（场地终端） 可自定义
     var audienceUserId = "" //观众，用户名这边设置为随机
 
     override fun onCreate(savedInstanceState: Bundle?) {
